@@ -10,6 +10,7 @@ public class Ball {
     private Color color;
     private int minCsX;
     private int maxCsX;
+    private boolean inCs;
 
     public Ball(int minX, int maxX, int minCsX, int maxCsX, int yPos, Color color) {
         this.xPos = minX;
@@ -33,7 +34,7 @@ public class Ball {
         return xPos;
     }
 
-   public int getYPos() {
+    public int getYPos() {
         return yPos;
     }
 
@@ -45,6 +46,12 @@ public class Ball {
         return speed;
     }
 
+    public void setInCs(boolean inCs) {
+        this.inCs = inCs;
+    }
+
+    public boolean getInCs() { return inCs; }
+
     public boolean isEnteringCs() {
         return xPos == minCsX;
     }
@@ -52,4 +59,5 @@ public class Ball {
     public boolean isLeavingCs() {
         return xPos == maxCsX;
     }
+
 }

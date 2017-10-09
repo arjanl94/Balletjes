@@ -26,12 +26,16 @@ public class BallRunnable implements Runnable {
             try {
                 if (ball.getColor() == Color.BLUE && ball.isEnteringCs()) {
                     monitor.enterWriter();
+                    ball.setInCs(true);
                 } else if (ball.getColor() == Color.RED && ball.isEnteringCs()) {
                     monitor.enterReader();
+                    ball.setInCs(true);
                 } else if (ball.getColor() == Color.BLUE && ball.isLeavingCs()) {
                     monitor.exitWriter();
+                    ball.setInCs(false);
                 } else if (ball.getColor() == Color.RED && ball.isLeavingCs()) {
                     monitor.exitReader();
+                    ball.setInCs(false);
                 }
 
                 ball.move();

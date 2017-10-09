@@ -126,6 +126,14 @@ public class MovingBallsFX extends Application {
             t.start();
         } else {
             // Reader or writer deselected: remove ball
+            if(ballArray[index].getInCs()) {
+                if(ballArray[index].getColor() == Color.BLUE) {
+                    monitor.exitWriter();
+                }
+                else {
+                    monitor.exitReader();
+                }
+            }
             threadArray[index].interrupt();
             threadArray[index] = null;
             ballArray[index] = null;
