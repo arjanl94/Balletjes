@@ -61,7 +61,7 @@ public class Monitor {
         monLock.lock();
         try {
             writersActive--;
-            if (readersWaiting > 0){
+            if (readersWaiting > 0 && writersWaiting <= 0){
                 okToRead.signalAll();
             }
             else okToWrite.signal();
