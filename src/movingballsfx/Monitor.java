@@ -22,7 +22,7 @@ public class Monitor {
     public void enterReader() throws InterruptedException {
         monLock.lock();
         try {
-            while (writersActive > 0) {
+            while (readersActive > 2) {
                 readersWaiting++;
                 okToRead.await();
                 readersWaiting--;
@@ -38,6 +38,7 @@ public class Monitor {
         try {
             readersActive--;
             if (readersActive == 0) okToWrite.signal();
+            if (readersActive < 3) okToRead.signal();
         } finally {
             monLock.unlock();
         }

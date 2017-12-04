@@ -19,7 +19,7 @@ public class Ball {
         this.maxX = maxX;
         this.minCsX = minCsX;
         this.maxCsX = maxCsX;
-        this.speed = 10 + (new Random()).nextInt(5);
+        this.speed = 10; //+ (new Random()).nextInt(5);
         this.color = color;
     }
 
